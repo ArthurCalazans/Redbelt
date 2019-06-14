@@ -6,11 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateIncidentesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('incidentes', function (Blueprint $table) {
@@ -18,18 +13,12 @@ class CreateIncidentesTable extends Migration
             $table->string('titulo')->nullable();
             $table->string('descricao')->nullable();
             $table->integer('criticidade');
-            $table->interger('tipo');
+            $table->integer('tipo');
             $table->boolean('status');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('updated_at');
+            $table->timestamp('updated_at')->nullable();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('incidentes');
