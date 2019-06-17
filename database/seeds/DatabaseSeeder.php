@@ -11,6 +11,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        DB::table('tipo_incidentes')->insert([
+            'nome' => "Ataque Brute Force",
+        ]);
+        DB::table('tipo_incidentes')->insert([
+            'nome' => "Credencias vazadas",
+        ]);
+        DB::table('tipo_incidentes')->insert([
+            'nome' => "Ataque de DDoS",
+        ]);
+        DB::table('tipo_incidentes')->insert([
+            'nome' => "Atividades anormais de usuários",
+        ]);
     }
 }

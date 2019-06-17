@@ -10,11 +10,12 @@ class CreateIncidentesTable extends Migration
     {
         Schema::create('incidentes', function (Blueprint $table) {
             $table->bigIncrements('id_incidente');
-            $table->string('titulo')->nullable();
-            $table->string('descricao')->nullable();
+            $table->string('titulo');
+            $table->string('descricao', 999);
             $table->integer('criticidade');
-            $table->integer('tipo');
-            $table->boolean('status');
+            $table->bigInteger('id_tipo_incidentes')->unsigned();
+            $table->foreign('id_tipo_incidentes')->references('id_tipo_incidentes')->on('tipo_incidentes')->onDelete('cascade')->onUpdate('cascade');
+            $table->boolean('status')->default(1);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->nullable();
         });

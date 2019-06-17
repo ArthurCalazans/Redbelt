@@ -11,7 +11,6 @@ class Incidentes extends Model
         'titulo',
         'descricao',
         'criticidade',
-        'tipo',
         'status',
     ];
 }

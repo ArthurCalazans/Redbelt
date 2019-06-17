@@ -10,6 +10,8 @@ class SiteController extends Controller
     public function abrir_pagina_ver()
     {
         $title = "Vizualizar";
+        $incidente = new Incidentes();
+        $incidentes = $incidente->selectRaw('id_incidente, titulo, descricao, criticidade, status, ')->join('tipo_incidentes', 'tipo_incidentes.id_tipo_incidentes', 'incidentes.id_tipo_incidentes');
         return view('Incidentes.ver.index', compact('title'));
     }
     public function abrir_pagina_cadastrar()

@@ -5,7 +5,9 @@
         @include('comuns.preloader')
         <div class="page" style="display: none">
             @yield('content')
+            @include('comuns.cadastrar')
             @include('comuns.footer')
+            
         </div>            
         @include('comuns.bottom')
     </body>
