@@ -8,7 +8,10 @@ use App\Models\Incidentes;
 class SiteController extends Controller
 {
     public function abrir_pagina_ver()
-    { }
+    {
+        $title = "Vizualizar";
+        return view('Incidentes.ver.index', compact('title'));
+    }
     public function abrir_pagina_cadastrar()
     { }
     public function abrir_pagina_editar()

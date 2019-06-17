@@ -1,3 +1,5 @@
+@extends('template')
+@section('content')
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <br><br>
@@ -13,3 +15,4 @@
 
     </div>
 </div>
+@endsection

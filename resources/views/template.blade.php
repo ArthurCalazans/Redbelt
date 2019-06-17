@@ -2,8 +2,8 @@
 <html xmlns="https://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
     @include('comuns.head')
     <body>        
-        <div class="page">
-            @include('comuns.preloader')
+        @include('comuns.preloader')
+        <div class="page" style="display: none">
             @yield('content')
             @include('comuns.footer')
         </div>            
