@@ -11,8 +11,9 @@ class SiteController extends Controller
     {
         $title = "Vizualizar";
         $incidente = new Incidentes();
-        $incidentes = $incidente->selectRaw('id_incidente, titulo, descricao, criticidade, status, ')->join('tipo_incidentes', 'tipo_incidentes.id_tipo_incidentes', 'incidentes.id_tipo_incidentes');
-        return view('Incidentes.ver.index', compact('title'));
+        $incidentes = $incidente->selectRaw('id_incidente, titulo, descricao, criticidade, status, nome')
+        ->join('tipo_incidentes', 'tipo_incidentes.id_tipo_incidente', 'incidentes.id_tipo_incidente')->get();
+        return view('Incidentes.ver.index', compact('title', 'incidentes'));
     }
     public function abrir_pagina_cadastrar()
     { }

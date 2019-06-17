@@ -9,7 +9,7 @@ class CreateTipoIncidentesTable extends Migration
     public function up()
     {
         Schema::create('tipo_incidentes', function (Blueprint $table) {
-            $table->bigIncrements('id_tipo_incidentes');
+            $table->bigIncrements('id_tipo_incidente');
             $table->string('nome');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });

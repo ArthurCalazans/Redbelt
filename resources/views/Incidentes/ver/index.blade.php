@@ -10,8 +10,18 @@
         $('table').css('width', '100%');
         $('.dataTables_scrollHeadInner').css('width', '100%');
         $('th').css('width', 'width: 160px;');
-    });
+    });   
 
+</script>
+ <script type="text/javascript">
+    @if($incidentes->count() === 0)
+        $(document).ready(function () {
+    @else
+        $(html).ready(function () {
+    @endif
+        $('.main').css('height',$(document).height()-70+'px');
+
+    });
 </script>
 @endpush
 <div class="section no-pad-bot" id="index-banner">
@@ -32,22 +42,49 @@
                         <th>Ação</th>
                     </thead>
                     <tbody>
+                        @foreach($incidentes as $incidente)
                         <tr>
-                            <td>Um título</td>
-                            <td>Criticidade</td>
-                            <td>Tipo</td>
-                            <td>Status</td>
+                            <td>{{$incidente->titulo}}</td>
+
+                            @switch($incidente->criticidade)
+                                @case(1)
+                                <td>Baixa</td>
+                                @break;
+                                @case(2)
+                                <td>Média</td>
+                                @break;
+                                @case(3)
+                                <td>Alta,</td>
+                                @break;
+                            @endswitch
+
+                                <td>{{$incidente->nome}}</td>
+
+                            @switch($incidente->status)
+                                @case(1)
+                                <td>Aberto</td>
+                                @break;
+                                @case(0)
+                                <td>Fechado</td>
+                                @break;
+                            @endswitch
+
                             <td>
-                                <button type="button" id="ver" value="id"
-                                    class="btn-floating btn-large waves-effect waves-light blue"><i class="fa fa-trash"
-                                        aria-hidden="true"></i></button>
+                                <button type="button" id="ver"
+                                    class="btn-floating btn-large waves-effect waves-light blue">
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                </button>
                                 <a class="btn-floating btn-large waves-effect waves-light yellow darken-3"
-                                    href="editar/id"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
-                                <button type="button" id="excluir" value="id"
-                                    class="btn-floating btn-large waves-effect waves-light red"><i class="fa fa-trash"
-                                        aria-hidden="true"></i></button>
+                                    href="/editar/{{$incidente->id_incidente}}">
+                                    <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                                </a>
+                                <button type="button" id="excluir" value="{{$incidente->id_incidente}}"
+                                    class="btn-floating btn-large waves-effect waves-light red">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </button>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
