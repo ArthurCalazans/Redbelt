@@ -4,11 +4,11 @@
 
 Para começar a usar o mini sistema, siga os passos.
 
-> Extraia o arquivo no htdocs (se for xampp) deixando o caminho assim: C:\xampp\htdocs\redbelt; dentro dessa pasta terá a raiz do projeto.
-> Configure um virtual host
-> Configure uma conexão com o banco, usuario root, senha vazia (vazia mesmo, não é a palavra vazia kkk), banco de dados teste.
-> Rode o php artisan migrate, depois rode php artisan db:seed
-> Poderá acessar o site no endereço do virtual host criado.
+- Extraia o arquivo no htdocs (se for xampp) deixando o caminho assim: C:\xampp\htdocs\redbelt; dentro dessa pasta terá a raiz do projeto.
+- Configure um virtual host.
+- Configure uma conexão com o banco, usuario root, senha vazia (vazia mesmo, não é a palavra vazia kkk), banco de dados teste.
+- Rode o php artisan migrate, depois rode php artisan db:seed.
+- Poderá acessar o site no endereço do virtual host criado.
 
 ## Virtual Host no Xampp
 
