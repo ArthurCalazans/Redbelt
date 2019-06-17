@@ -71,7 +71,7 @@
 
                             <td>
                                 <button type="button" id="ver"
-                                    class="btn-floating btn-large waves-effect waves-light blue">
+                                    class="btn-floating btn-large waves-effect waves-light blue modal-trigger">
                                     <i class="fa fa-eye" aria-hidden="true"></i>
                                 </button>
                                 <a class="btn-floating btn-large waves-effect waves-light yellow darken-3"

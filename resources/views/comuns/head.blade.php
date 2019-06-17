@@ -15,6 +15,7 @@
     <link type="text/css" rel="stylesheet" href="{{asset('vendors/data-tables/extensions/responsive/css/responsive.dataTables.min.css')}}"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="{{asset('vendors/data-tables/css/select.dataTables.min.css')}}"  media="screen,projection"/>
 
+    <link type="text/css" rel="stylesheet" href="{{asset('vendors/sweetalert/sweetalert.css')}}"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="{{asset('css/style.css')}}"  media="screen,projection"/>
 
   </head>

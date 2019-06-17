@@ -3,4 +3,10 @@
 <script type="text/javascript" src="{{asset('vendors/data-tables/js/jquery.dataTables.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('vendors/data-tables/extensions/responsive/js/dataTables.responsive.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('vendors/data-tables/js/dataTables.select.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('vendors/sweetalert/sweetalert.min.js')}}"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('select').formSelect();
+  });
+  </script>
 @stack('scripts')
