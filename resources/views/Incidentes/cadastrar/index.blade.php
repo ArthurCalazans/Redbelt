@@ -3,14 +3,11 @@
 
 @push("scripts")
 <script type="text/javascript">
-    $(document).ready(function () {
-        $('.main').css('height', $(document).height() - 70 + 'px');
-    });
 
     $("form").submit(function (e) {
         e.preventDefault();
         var dados = $(this).serializeArray();
-
+        console.log(dados);
         $.post("/cadastrar", dados, function (data) {
             swal({
                 title: data['mensagem'],

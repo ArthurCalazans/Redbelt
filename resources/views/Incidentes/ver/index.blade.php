@@ -10,18 +10,61 @@
         $('table').css('width', '100%');
         $('.dataTables_scrollHeadInner').css('width', '100%');
         $('th').css('width', 'width: 160px;');
-    });   
+    });
 
 </script>
  <script type="text/javascript">
-    @if($incidentes->count() === 0)
-        $(document).ready(function () {
-    @else
-        $(html).ready(function () {
-    @endif
-        $('.main').css('height',$(document).height()-70+'px');
-
+    $("button").click(function (e) {
+        switch(e.currentTarget.id){
+            case 'ver':
+                mostrar_detalhes($(this).val())
+                break;
+            case 'excluir':
+            swal({
+                title: "Deseja excluir?",
+                icon: 'warning',
+                dangerMode: true,
+                buttons: {
+                cancel: 'Não',
+                delete: 'Sim'
+                }
+            }).then(function (willDelete) {
+                if (willDelete) {
+                    excluir_incidente($(this).val())
+                }
+            });
+                break;
+        }
     });
+
+    function mostrar_detalhes(detalhe){
+        $('.modal-content p').remove();
+        $('.modal-content').append('<p>'+detalhe+'</p>');
+        $('.modal').modal();
+    }
+    function excluir_incidente(id){
+        var dados = [];
+
+        dados[0] = {name:"id_incidente", value: id};
+        dados[1] = {name:"_token", value:$("input[name=_token]").val()};
+
+        $.post("/excluir", dados, function (data) {
+            swal({
+                title: data['mensagem'],
+                icon: data['tipo'],
+                dangerMode: true
+            }).then(function () {
+                location.reload();
+            });
+        }).fail(function (data) {
+            swal({
+                title: 'Erro',
+                message: data.statusText,
+                icon: 'error'
+            })
+        });
+    }
+    
 </script>
 @endpush
 <div class="section no-pad-bot" id="index-banner">
@@ -69,17 +112,17 @@
                                 @break;
                             @endswitch
 
-                            <td>
-                                <button type="button" id="ver"
-                                    class="btn-floating btn-large waves-effect waves-light blue modal-trigger">
+                            <td>                                
+                                <button type="button" id="ver" data-target="modal1" value="{{$incidente->descricao}}"
+                                    class="btn-floating btn-large waves-effect waves-light blue modal-trigger" title="VER DESCRIÇÃO">
                                     <i class="fa fa-eye" aria-hidden="true"></i>
                                 </button>
                                 <a class="btn-floating btn-large waves-effect waves-light yellow darken-3"
-                                    href="/editar/{{$incidente->id_incidente}}">
+                                    href="/editar/{{$incidente->id_incidente}}" title="EDITAR INCIDENTE">
                                     <i class="fa fa-pencil-square" aria-hidden="true"></i>
                                 </a>
                                 <button type="button" id="excluir" value="{{$incidente->id_incidente}}"
-                                    class="btn-floating btn-large waves-effect waves-light red">
+                                    class="btn-floating btn-large waves-effect waves-light red" title="EXCLUIR INCIDENTE">
                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                 </button>
                             </td>
@@ -91,4 +134,6 @@
         </div>
     </div>
 </div>
+@csrf
+@include('Incidentes.ver.modal')
 @endsection

@@ -8,5 +8,8 @@
 $(document).ready(function(){
     $('select').formSelect();
   });
+  $(document).ready(function () {
+        $('.main').css('height',$(window).height()-70+'px');
+    });
   </script>
 @stack('scripts')
