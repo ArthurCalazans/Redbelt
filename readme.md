@@ -1,5 +1,3 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
-
 # Primeiros Passos
 
 Para começar a usar o mini sistema, siga os passos.
